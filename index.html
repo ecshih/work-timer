@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  </head>
+
+  <body>
+  	<div class="container">
+      <div class="starter-template">
+  	   	<div class="row">
+          <h1 id="instructions">How many minutes to set your timer?</h1>
+  	 	   <input type="text" id="timerLength" /><br /><br />
+  	 	   <button class="btn btn-lg btn-primary" id="timerBtn" onclick="setTimer()">Set Timer</button>
+    	  </div>
+ 	      <div class="row">
+ 	 	     <h2 id="clock"></h2>
+            <button id="runBtn" style="visibility: hidden" class="btn btn-lg btn-primary" onclick="runTimer()">Start Timer</button>
+        </div>
+      </div>
+    </div>
+
+  	<!--Modules
+	  <script src="js/controllers/MainController.js"></script>-->
+    <script src="js/timer.js"></script>
+  </body>
+
+</html>

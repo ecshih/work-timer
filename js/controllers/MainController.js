@@ -1,5 +1,5 @@
 app.controller('MainController', ['$scope', function($scope){
-	$scope.emails = [
+	$scope.workblocks = [
 		{
 		topic: "Code Practice",
 		allocated: "10",

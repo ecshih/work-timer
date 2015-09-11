@@ -1,0 +1,15 @@
+ <div ng-repeat="email in emails">
+         <p>{{ email.topic }}{{ email.allocated }}{{ email.actual }}</p>
+        </div>
+
+<div class="row">
+	<h1 id="instructions">How long is your work block?</h1>
+  	<input type="text" id="timerLength" /><br /><br />
+  	<button class="btn btn-lg btn-primary" id="timerBtn" onclick="setTimer()">Set Timer</button>
+</div>
+
+
+<div class="row">
+    <h2 id="clock"></h2>
+    <button id="runBtn" style="visibility: hidden" class="btn btn-lg btn-primary" onclick="runTimer()">Start Timer</button>
+</div>

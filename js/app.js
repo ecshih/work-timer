@@ -3,7 +3,7 @@ var app = angular.module('WorkTimer', ['ngRoute']);
 		$routeProvider
 			.when('/', {
 				controller:'MainController',
-				templateUrl: 'views/main.html'
+				templateUrl: 'views/home.html'
 			})
 			.otherwise({
 				redirectTo: '/'

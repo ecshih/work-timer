@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-sm-8">
+		<a href="#/{{ index }}">
+			<div class="col-sm-5">
+				<span >{{ todo.task }}</span>
+			</div>
+			<div class="col-sm-2">
+				<span>{{ todo.duration }}</span>
+			</div>
+			<div class="col-sm-1">
+				<span><input type="button" class= "btn btn-sm btn-primary" value="select" /></span>
+			</div>
+		</a>
+	</div>
+	<div class="col-sm-1">	
+		<span><input type="button" class = "btn btn-sm btn-danger" value="delete" ng-click="schedule.removeBlock(todo)" /></span>
+	</div>
+</div>

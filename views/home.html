@@ -1,15 +1,13 @@
 <div class="row instructions">
 <h2>Good morning, what would you like to get done today?</h2>
 </div>
-<form>
+<form ng-submit="schedule.addBlock(newBlock); newBlock={}">
 	<input type="text" name="task" ng-model="newBlock.task" placeholder="Task" />
-	<input type="text" name="duration" ng-model="newBlock.duration" placeholder="Duration" />
-	<input type="button" class = "btn btn-lg btn-primary" value="add block" ng-click="schedule.addBlock(newBlock); newBlock={}" />
+	<input type="text" name="duration" ng-model="newBlock.duration" placeholder="Duration" /><br />
+	<input type="submit" class= "btn btn-lg btn-primary" value="add block" />
 </form>
-<br />
-<table>
-	<tr ng-repeat="block in schedule.blocks()">
-		<td>{{ block.task }}</td>
-		<td>{{ block.duration }}</td>
-	</tr>
-</table>
+<br /><br />
+
+<div ng-repeat="block in schedule.blocks()">
+	<task-list todo = "block" index="{{ $index }}"></task-list>
+</div>

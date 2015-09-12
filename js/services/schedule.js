@@ -6,6 +6,11 @@ app.factory('schedule', function(){
 		blocks.push(block);
 	};
 
+	allBlocks.removeBlock = function(block){
+		var index = blocks.indexOf(block);
+		blocks.splice(index, 1);
+	};
+
 	allBlocks.blocks = function(){
 		return blocks;
 	};

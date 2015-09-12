@@ -1,0 +1,9 @@
+{{ task }}
+
+<h2>{{minutes}}:{{ secondsDisplay() }} </h2>
+
+<button id="runBtn" class="btn btn-lg btn-primary" ng-click="runTimer()">{{ runButton  }}</button>
+
+<div ng-repeat="block in schedule.blocks()">
+	<task-list todo = "block" index="{{ $index }}"></task-list>
+</div>

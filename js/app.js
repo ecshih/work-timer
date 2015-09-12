@@ -5,6 +5,10 @@ var app = angular.module('WorkTimer', ['ngRoute']);
 				controller:'MainController',
 				templateUrl: 'views/home.html'
 			})
+			.when('/:id', {
+				controller: 'TimerController',
+				templateUrl: 'views/timer.html'
+			})
 			.otherwise({
 				redirectTo: '/'
 			});

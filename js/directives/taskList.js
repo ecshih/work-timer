@@ -2,8 +2,8 @@ app.directive('taskList', function(){
 	return {
 		restrict: 'E',
 		scope: {
-			todo: '=',
-			index: '@'
+			//todo: '=',
+			//index: '@'
 		},
 		controller: function($scope, schedule) {
 			$scope.schedule = schedule;

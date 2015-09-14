@@ -4,6 +4,7 @@ app.factory('schedule', function(){
 
 	allBlocks.addBlock = function(block){
 		blocks.push(block);
+		$('input[name=task]').focus();
 	};
 
 	allBlocks.removeBlock = function(block){

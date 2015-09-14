@@ -6,3 +6,12 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+
+.tasklist {
+	max-width: 450px;
+	margin: auto;
+}
+
+td .deleteBtn {
+	padding: 20px;	
+}

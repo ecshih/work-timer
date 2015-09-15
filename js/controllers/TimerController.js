@@ -1,4 +1,4 @@
-app.controller('TimerController', ['$scope', '$interval', 'schedule', '$routeParams', function($scope, $interval, schedule, $routeParams){
+app.controller('TimerController', ['$scope', '$interval', 'schedule', '$routeParams', '$window', function($scope, $interval, schedule, $routeParams, $window){
 	$scope.schedule = schedule;
 	$scope.task = schedule.blocks()[$routeParams.id];
 
@@ -6,9 +6,6 @@ app.controller('TimerController', ['$scope', '$interval', 'schedule', '$routePar
 
 	$scope.seconds = totalTimeSec % 60;
 	$scope.minutes = parseInt(totalTimeSec / 60);
-
-	
-
 	$scope.runButton = "Start Timer";
 
 	var on = false;
@@ -50,7 +47,8 @@ app.controller('TimerController', ['$scope', '$interval', 'schedule', '$routePar
 	};
 
 	$scope.completedTimer = function(){
+		document.getElementById("completedSound").play();
 		$window.alert("Time's up!");
 		$interval.cancel(timer);
-	}
+	};
 }]);

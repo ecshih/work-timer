@@ -34,11 +34,16 @@ app.controller('TimerController', ['$scope', '$interval', 'schedule', '$routePar
 	};
 
 	$scope.displayTimer = function() {
+		
 		$scope.hours = parseInt(totalTimeSec / 3600);
 		$scope.minutes = parseInt( (totalTimeSec - ($scope.hours * 3600)) / 60);
 		$scope.seconds = totalTimeSec % 60;
 
-		return $scope.hours + ":" + $scope.minutesDisplay() + ":" + $scope.secondsDisplay();
+		var timeToShow = function() {
+			return $scope.hours + ":" + $scope.minutesDisplay() + ":" + $scope.secondsDisplay();
+		};
+
+		return timeToShow();
 	};
 
 	$scope.runTimer = function(){

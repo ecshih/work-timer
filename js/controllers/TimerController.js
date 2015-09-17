@@ -4,8 +4,10 @@ app.controller('TimerController', ['$scope', '$interval', 'schedule', '$routePar
 
 	var totalTimeSec = $scope.task.duration * 60;
 
-	$scope.seconds = totalTimeSec % 60;
-	$scope.minutes = parseInt(totalTimeSec / 60);
+	$scope.seconds = 0;
+	$scope.minutes = 0;
+	$scope.hours = 0;
+
 	$scope.runButton = "Start Timer";
 
 	var on = false;
@@ -21,9 +23,22 @@ app.controller('TimerController', ['$scope', '$interval', 'schedule', '$routePar
 		}
 	};
 
+	$scope.minutesDisplay = function(){
+
+		if ($scope.minutes < 10) {
+			return "0" + $scope.minutes.toString();
+		}
+		else {
+			return $scope.minutes;
+		}
+	};
+
 	$scope.displayTimer = function() {
-		$scope.minutes = parseInt(totalTimeSec / 60);
+		$scope.hours = parseInt(totalTimeSec / 3600);
+		$scope.minutes = parseInt( (totalTimeSec - ($scope.hours * 3600)) / 60);
 		$scope.seconds = totalTimeSec % 60;
+
+		return $scope.hours + ":" + $scope.minutesDisplay() + ":" + $scope.secondsDisplay();
 	};
 
 	$scope.runTimer = function(){

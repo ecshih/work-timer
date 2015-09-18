@@ -2,7 +2,7 @@ var app = angular.module('WorkTimer', ['ngRoute']);
 	app.config(function($routeProvider){
 		$routeProvider
 			.when('/', {
-				controller:'MainController',
+				controller:'TaskController',
 				templateUrl: 'views/home.html'
 			})
 			.when('/:id', {

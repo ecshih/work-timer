@@ -1,20 +1,19 @@
-{{ task }}
-
-<!--<h2>{{hours}}:{{minutes}}:{{ secondsDisplay() }} </h2>-->
-<h2>{{ displayTimer() }}</h2>
-
-<button id="runBtn" class="btn btn-lg btn-primary" ng-click="runTimer()">{{ runButton  }}</button>
-
 <audio id="completedSound" src="assets/Small-bell-ringing.wav">Your browser does not support audio</audio>
 
+<div>
+	<h1>{{ currentTaskName }}</h1>
+</div>
 
-<!-- deprecated, testing other version of task-list
+<div>
+	<h2>{{ displayTimer() }}</h2>
+	<button id="runBtn" class="btn btn-lg btn-primary" ng-click="runTimer()">{{ runButton  }}</button>
+</div>
 
-<div ng-repeat="block in schedule.blocks()">
-	<task-list todo = "block" index="{{ $index }}"></task-list>
-</div>-->
 
-<br /><br />
+<br /><br /><br />
 
-<task-list></task-list>
-<entry-form></entry-form>
+<div ng-controller="TaskController">
+	<task-list></task-list>
+	<br />
+	<entry-form></entry-form>
+</div>

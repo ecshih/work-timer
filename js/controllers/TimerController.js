@@ -1,12 +1,6 @@
 app.controller('TimerController', ['$scope', '$interval', 'schedule', '$routeParams', '$window', function($scope, $interval, schedule, $routeParams, $window){
-	$scope.schedule = schedule;
-	$scope.task = schedule.blocks()[$routeParams.id];
-
-	var totalTimeSec = $scope.task.duration * 60;
-
-	$scope.seconds = 0;
-	$scope.minutes = 0;
-	$scope.hours = 0;
+	var task = schedule.list[$routeParams.id];
+	$scope.currentTaskName = task.task;
 
 	$scope.runButton = "Start Timer";
 
@@ -15,32 +9,34 @@ app.controller('TimerController', ['$scope', '$interval', 'schedule', '$routePar
 
 	$scope.secondsDisplay = function(){
 
-		if ($scope.seconds < 10) {
-			return "0" + $scope.seconds.toString();
+		if (task.estSeconds < 10) {
+			return "0" + task.estSeconds.toString();
 		}
 		else {
-			return $scope.seconds;
+			return task.estSeconds;
 		}
 	};
 
 	$scope.minutesDisplay = function(){
 
-		if ($scope.minutes < 10) {
-			return "0" + $scope.minutes.toString();
+		if (task.estMinutes < 10) {
+			return "0" + task.estMinutes.toString();
 		}
 		else {
-			return $scope.minutes;
+			return task.estMinutes;
 		}
 	};
 
 	$scope.displayTimer = function() {
 		
-		$scope.hours = parseInt(totalTimeSec / 3600);
-		$scope.minutes = parseInt( (totalTimeSec - ($scope.hours * 3600)) / 60);
-		$scope.seconds = totalTimeSec % 60;
+		//This is a work-around, will remove this when I refactor to use single property of totalTimeSec leaving the rest to be pushed through display logic only
+		task.estHours = parseInt(task.totalTimeSec / 3600);
+		task.estMinutes = parseInt((task.totalTimeSec - (task.estHours * 3600)) / 60);
+		task.estSeconds = task.totalTimeSec % 60;
+
 
 		var timeToShow = function() {
-			return $scope.hours + ":" + $scope.minutesDisplay() + ":" + $scope.secondsDisplay();
+			return task.estHours + ":" + $scope.minutesDisplay() + ":" + $scope.secondsDisplay();
 		};
 
 		return timeToShow();
@@ -50,9 +46,9 @@ app.controller('TimerController', ['$scope', '$interval', 'schedule', '$routePar
 		if (on == false) {
 			on = true;
 			timer = $interval(function(){
-				totalTimeSec--;
+				task.totalTimeSec--;
 				$scope.displayTimer();
-				if (totalTimeSec <= 0) {
+				if (task.totalTimeSec <= 0) {
 					$scope.completedTimer();
 				}
 			}, 1000);

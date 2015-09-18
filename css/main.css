@@ -1,8 +1,19 @@
 body {
   padding-top: 50px;
+  font-family:"Open sans";
+  font-weight: 400;
 }
 
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+
+.tasklist {
+	max-width: 550px;
+	margin: auto;
+}
+
+td .deleteBtn {
+	padding: 20px;	
 }

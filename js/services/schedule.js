@@ -1,4 +1,4 @@
-app.factory('schedule', function(){
+app.factory('schedule', function($meteor){
 	var allBlocks = {};
 
 	allBlocks.list = [];

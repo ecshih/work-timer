@@ -1,4 +1,9 @@
-var app = angular.module('WorkTimer', ['ngRoute']);
+Blocks = new Mongo.Collection('blocks');
+
+if (Meteor.isClient) {
+
+	var app = angular.module('WorkTimer', ['ngRoute', 'angular-meteor']);
+
 	app.config(function($routeProvider){
 		$routeProvider
 			.when('/', {
@@ -13,3 +18,5 @@ var app = angular.module('WorkTimer', ['ngRoute']);
 				redirectTo: '/'
 			});
 	});
+
+}

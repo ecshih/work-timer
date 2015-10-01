@@ -1,0 +1,11 @@
+<form>
+	<div class="form-inline">
+		<input type="text" class="taskEntry" name="task" ng-model="newBlock.task" placeholder="Task" />
+		<input type="text" class="timeEntry" name="duration" ng-model="newBlock.duration" placeholder="Minutes" pattern="(\d:\d+)|\d+" title="minutes" />
+		<button ng-click="newBlock.owner=$root.currentUser._id; blocks.save(newBlock); newBlock='';" class= "btn btn-sm btn-primary">add block</button>
+	</div>
+</form>
+
+<!-- Can't get focus back on first field
+
+Previous code was  $('input[name=task]').focus(); -->

@@ -1,0 +1,31 @@
+body {
+  padding-top: 50px;
+  font-family:"Open sans";
+  font-weight: 400;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.tasklist {
+	max-width: 600px;
+	margin: auto;
+}
+
+td .deleteBtn {
+	padding: 20px;	
+}
+
+.taskEntry {
+	width: 250px;
+}
+
+.timeEntry {
+	width: 65px;
+}
+
+.task {
+	text-align: left;
+}

@@ -1,7 +1,0 @@
-<form ng-submit="newBlock(block); block={}">
-	<div class="form-inline">
-		<input type="text" name="task" ng-model="block.task" placeholder="Task" />
-		<input type="text" name="duration" ng-model="block.duration" placeholder="hours:minutes or minutes" pattern="(\d:\d+)|\d+" required title="minutes or hours:minutes" />
-		<input type="submit" class= "btn btn-sm btn-primary" value="add block" />
-	</div>
-</form>
